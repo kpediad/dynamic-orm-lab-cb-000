@@ -53,5 +53,6 @@ class InteractiveRecord
       WHERE #{data.keys[0]} = ?
     SQL
     DB[:conn].execute(sql, data.values[0])
+  end
 
 end
