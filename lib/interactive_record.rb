@@ -23,7 +23,7 @@ class InteractiveRecord
   end
 
   def col_names_for_insert
-    self.class.column_names.collect{|col| col unless col == "id"}
+    self.class.column_names.collect{|col| col unless col == "id"}.compact.join(", ")
   end
 
   def values_for_insert
