@@ -15,9 +15,7 @@ class InteractiveRecord
   end
 
   def initialize(data = {})
-    obj = self.class.new.tap do
-      data.each{|key, value| obj.send("#{key}=", value)}
-    end
+    data.each{|attr, value| self.send("#{attr}=", value)}
   end
 
 end
