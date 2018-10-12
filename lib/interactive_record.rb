@@ -27,7 +27,7 @@ class InteractiveRecord
   end
 
   def values_for_insert
-
+    self.class.column_names.collect{|col| "'#{self.send(col)}'" unless self.send(col).nil?}.compact.join(", ")
   end
 
 end
