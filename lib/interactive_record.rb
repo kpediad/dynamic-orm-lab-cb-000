@@ -22,4 +22,11 @@ class InteractiveRecord
     self.class.table_name
   end
 
+  def col_names_for_insert
+    self.class.column_names.collect{|col| col unless col == "id"}
+  end
+
+  def values_for_insert
+
 end
+
