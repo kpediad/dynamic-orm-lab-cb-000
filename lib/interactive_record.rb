@@ -14,4 +14,10 @@ class InteractiveRecord
     table_info.collect{|col| col['name']}.compact
   end
 
+  def initialize(data)
+    obj = self.class.new.tap do
+      self.class.column_names.each{|attr| obj.send("#{attr}=", data[attr.to_sym])}
+    end
+  end
+
 end
